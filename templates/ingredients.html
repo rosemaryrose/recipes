@@ -1,0 +1,46 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<h1 class="btn user1">- Все ингридиенты -</h1>
+<div class="upper bin2">
+    <a class="btn bt2 bin2" href="/ingredients?page={{num - 1}}">
+        <img src="/static/images/arrow-left.svg" alt="" width="20" height="20"> Назад
+    </a>
+
+    <h3 class="btn bt2">Текущая страница: {{ num }}   ({{(num - 1) * 20 + 1}} - {{num * 20}})</h3>
+    <a class="btn bt2 bin2" href="/ingredients?page={{num + 1}}">
+        Вперед <img src="/static/images/arrow-right.svg" alt="" width="20" height="20">
+    </a>
+</div>
+{% if current_user.is_authenticated %}
+    <form style="margin-top: 20px" action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control") }}<br>
+        {% for error in form.name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn bt2") }}</p>
+        <div>{{ message }}</div>
+    </form>
+{% endif %}
+{% for item in ingr %}
+{% if item.used == True %}
+    <div class="usercard">
+        <a href="/ingredients/{{item.id}}" class="user2">{{item.name}}</a>
+    </div>
+{% else %}
+    <div class="usercard bin2">
+        <a href="/ingredients/{{item.id}}" class="user2">{{item.name}} </a>
+        <a href="/ing_delete/{{ item.id }}" class="btn btn-default bin1" aria-label="Left Align">
+            <img src="/static/images/trash.svg" alt="" width="32" height="32" title="delete">
+        </a>
+    </div>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

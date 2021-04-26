@@ -1,0 +1,92 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<h1 class="btn user1">- Рецепты -</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.category.label }}<br>
+        {{ form.category(class="form-control") }}<br>
+        {% for error in form.category.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title(class="form-control") }}<br>
+        {% for error in form.title.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.time.label }}<br>
+        {{ form.time(class="form-control") }}<br>
+        {% for error in form.time.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.calorie.label }}<br>
+        {{ form.calorie(class="form-control") }}<br>
+        {% for error in form.calorie.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.ingr_in.label}}
+        {{ form.ingr_in(class="form-control", style="height: 200px;") }}<br>
+        {% for error in form.ingr_in.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.ingr_ex.label}}
+        {{ form.ingr_ex(class="form-control", style="height: 200px;") }}<br>
+        {% for error in form.ingr_ex.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.sort_by.label }}<br>
+        {{ form.sort_by(class="form-control") }}<br>
+        {% for error in form.sort_by.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.sort_by2(class="form-control") }}<br>
+        {% for error in form.sort_by2.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn bt2") }}</p>
+</form>
+<div class="recipes" id="showrecipes">
+{% for item in recipes %}
+    <div class="recipecard">
+        <a href="/recipes/{{item.id}}" class="btn bt3"><h4>{{item.title}}</h4></a>
+        <h5>{{item.category}}</h5>
+        <h5 class="psh">{{item.description}}</h5>
+        <img src="/static/user_images/{{ item.id }}.jpg" width="270px" style="margin: 10px">
+    </div>
+{% else %}
+    <h4 style="color:#9DDA52;">Нет рецептов :(</h4>
+{% endfor %}
+</div>
+{% endblock %}

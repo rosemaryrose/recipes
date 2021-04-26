@@ -1,0 +1,25 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<h1 class="btn user1">
+    - {{ user.login }} -
+</h1>
+<p class="psh">Дата регистрации: {{ date }}</p>
+<h4>О себе: {{ user.about }}</h4>
+{% if (current_user.is_authenticated) and (user.id == current_user.id) %}
+<a class="btn bt3" href="/new1?id={{ id }}"><h4 class="verty">Создать новый рецепт</h4></a>
+{% endif %}
+<p><h4>Мои рецепты: </h4></p>
+<div class="recipes">
+{% for item in recipes %}
+    <div class="recipecard">
+        <a href="/recipes/{{item.id}}" class="btn bt3"><h4>{{item.title}}</h4></a>
+        <h5>{{item.category}}</h5>
+        <h5 class="psh">{{item.description}}</h5>
+        <img src="/static/user_images/{{ item.id }}.jpg" width="270px" style="margin: 10px">
+    </div>
+{% else %}
+    <h4 style="color:#9DDA52;">Нет рецептов :(</h4>
+{% endfor %}
+</div>
+{% endblock %}

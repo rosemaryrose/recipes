@@ -1,0 +1,14 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<h1 class="btn user1">- Пользователи -</h1>
+{% for item in users%}
+<div class="usercard">
+    <a href="/users/{{item.id}}" class="btn user2" style="width: 220px;">{{item.login}}</a>
+    <ul style="margin-bottom: 0;">
+        <li class="psh">О себе: {{item.about}}</li>
+        <li class="psh">Количество рецептов: {{ item.recipe_num }}</li>
+    </ul>
+</div>
+{% endfor %}
+{% endblock %}

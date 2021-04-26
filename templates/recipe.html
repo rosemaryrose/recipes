@@ -1,0 +1,35 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<h1 class="btn user1">- {{recipe.title}} -</h1>
+<p class="psh">От: {{ recipe.user.login }}</p>
+<img src="/static/user_images/{{recipe.id}}.jpg" width="50%" style="margin: auto; margin-top: 10px;">
+<h4 class="psh">Описание: {{recipe.description}}</h4>
+<div class="blox">
+    <h4>Сложность: {{ recipe.hard }}/5</h4>
+    <h4>Калорийность: {{ recipe.calorie }} кКал</h4>
+    <h4>Время приготовления: {{ recipe.time }} мин</h4>
+</div>
+<div>
+<h3 class="btn user1">Ингредиенты</h3>
+<table>
+    <tr>
+        <th><h4>Название</h4></th>
+        <th><h4>Количество</h4></th>
+    </tr>
+    {% for item in ingredients %}
+    <tr>
+        <td><h5>{{ item.ingredient.name }}</h5></td>
+        <td><h5>{{ item.quantity }}</h5></td>
+    </tr>
+    {% endfor %}
+</table>
+<h5>Комментарий к ингредиентам: {{recipe.comment}}</h5>
+</div>
+<h3 class="btn user1">Пошаговый рецепт</h3>
+<ol>
+    {% for step in rec_text %}
+    <li><h5>{{step}}</h5></li>
+    {% endfor %}
+</ol>
+{% endblock %}

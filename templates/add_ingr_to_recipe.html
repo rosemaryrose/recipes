@@ -1,0 +1,32 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<h1 class="user1 btn">- Добавить ингредиенты -</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div style="margin-top: 10px">
+        {{ form.search.label(class="verty") }}
+        <div class="upper btn bt3">
+            {{ form.search(class="form-control") }}
+            {{ form.find(type="submit", class="btn bin1", style="color: white;") }}
+        </div>
+        {% for error in form.search.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div><br>
+    <p>
+        {{ form.choice(class="form-control", style="height: 300px;") }}<br>
+        {% for error in form.choice.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <div class="bin2">
+        {{ form.add_ingr(type="submit", class="btn bt2") }}
+        <a href="/ingredients" class="btn bt3" style="width: auto;">Не нашли ингредиент?</a>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<a href="/recipes#showrecipes" class="btn cat"><h3>Все рецепты</h3></a>
+<a class="btn cat"><h3 style="color: white;">Категории: </h3></a>
+<div>
+    {% for item in cat %}
+        <a href="/recipes?category={{item}}#showrecipes" class="btn psh"><h4>{{ item }}</h4></a>
+    {% endfor %}
+</div>
+<a href="/users" class="btn cat"><h3>Пользователи</h3></a>
+<a href="/ingredients" class="btn cat"><h3>Ингредиенты</h3></a>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<h1 class="user1 btn">- Ингредиенты и их количество -</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        <div class="btn upper bin2">
+            <a class="btn bt2 bin2" href="/add_ingr_to_recipe?id={{ id }}">
+                Добавить <img src="/static/images/plus-square.svg" alt="" width="32" height="32">
+            </a>
+            <a href="/delete_from_recipe/{{ id }}" class="btn bt2"><img src="/static/images/arrow-repeat.svg" alt="" width="32" height="32"></a>
+        </div>
+        <table>
+            <tr>
+                <th>Название</th>
+                <th>Количество</th>
+            </tr>
+            {% for item in form.ingrs %}
+            <tr>
+                <td>{{ item.title(class="form-control") }}</td>
+                <td>{{ item.quantity(class="form-control") }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% for error in form.ingrs.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.comment.label }}<br>
+        {{ form.comment(class="form-control") }}<br>
+        {% for error in form.comment.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn bt2") }}</p>
+</form>
+{% endblock %}

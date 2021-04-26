@@ -1,0 +1,65 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<h1 class="user1 btn">- Основная информация -</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title(class="form-control") }}<br>
+        {% for error in form.title.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.description.label }}<br>
+        {{ form.description(class="form-control") }}<br>
+        {% for error in form.description.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.hard.label }}<br>
+        {{ form.hard(class="form-control") }}<br>
+        {% for error in form.hard.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.calorie.label }}<br>
+        {{ form.calorie(class="form-control") }}<br>
+        {% for error in form.calorie.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.time.label }}<br>
+        {{ form.time(class="form-control") }}<br>
+        {% for error in form.time.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.category.label }}<br>
+        {{ form.category(class="form-control", type="select") }}<br>
+        {% for error in form.category.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+
+    <p>{{ form.submit(type="submit", class="btn bt2") }}</p>
+    {{message}}
+</form>
+{% endblock %}
