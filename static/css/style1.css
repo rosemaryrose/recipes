@@ -1,0 +1,149 @@
+body {
+    padding: 20px;
+    font: 1em Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+
+img {
+    display: block;
+    padding: 4px white;
+}
+
+.upper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.bt2{
+    background-color: #5E8331;  
+    border-radius: 10px;
+    color: white;
+}
+
+.bt3, .bt3:hover{
+    background-color: #9DDA52;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+}
+
+.up{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+}
+
+.user1{
+    background-size: cover;
+    background-color: #9DDA52;
+    border-radius: 10px;
+    width: 100%;
+    color: white;
+    font-size: 28px;
+}
+
+.container{
+    margin-top: 10px;
+}
+
+.usercard{
+    border: #5E8331 2px solid;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user2, .user2:hover{
+    color: #9DDA52;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+a.bt2:hover{
+    color: #9DDA52;
+}
+
+.psh{
+    font-style: italic;
+    color: #5E8331;
+}
+
+.psh:hover{
+    color: black;
+}
+
+.logo, .logo:hover{
+    padding: 5px;
+    margin-bottom: 0;
+    color: #000;
+    text-decoration: none;
+}
+
+.bt2:active, .bt3:active{
+    box-shadow: 3px #E0E0E0;
+}
+
+.bin1{
+    background-color: #9DDA52;
+}
+
+.bin2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a.dis{
+    pointer-events: none;
+}
+
+.verty{
+    vertical-align: bottom;
+    margin-bottom: 0;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.recipecard{
+    border: #5E8331 2px solid;
+    border-radius: 10px;
+    padding: 5px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.recipes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cat, .cat:hover{
+    background-color: #9DDA52;
+    color: white;
+    margin: 5px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.blox{
+    margin-up: 10px;
+    padding: 10px;
+    background-color: #5E8331;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
